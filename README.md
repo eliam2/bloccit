@@ -3,5 +3,5 @@
 Made with **Michael Pell** my mentor at [Bloc](http://bloc.io).
 
 ___
-An EMM production
+Built by EM in sunny Miami
 
