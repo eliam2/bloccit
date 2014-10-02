@@ -16,6 +16,8 @@ gem 'rails', '4.0.10'
  
 gem 'bootstrap-sass', '~> 3.1.1'
 
+gem 'devise'
+
 gem 'faker'
  
 # Use SCSS for stylesheets
