@@ -4,8 +4,10 @@ ___
 
 ###Bloccit: a Reddit clone to teach the fundamentals of web development and Rails 4.
 
-Made with **Michael Pell** my mentor at [Bloc](http://bloc.io).
+**Setup**
+config/application.yml contains sensitive information and will not be replicated to the cloud
+config/application.example.yml contains the appropriate variables developers may need when usinhg the serice.
 
 ___
-Built by EM in sunny Miami
+Built by me in sunny Miami
 
