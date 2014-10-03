@@ -1,4 +1,4 @@
-Bloccit::Application.configure do
+  Bloccit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -71,6 +71,8 @@ Bloccit::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+
+  config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
