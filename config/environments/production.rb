@@ -77,4 +77,8 @@
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Devise email server setup
+  config.action_mailer.default_url_options = { host: 'emm-bloccit.herokuapp.com' }
+
 end
