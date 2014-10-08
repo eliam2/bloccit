@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
 
     if @post.save
        flash[:notice] = "Post was saved."
-       redirect_to [@topic]
+       redirect_to [@topic, @post]
     else
        flash[:error] = "There was an error saving the post. Please try again."
        render :new
