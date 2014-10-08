@@ -7,8 +7,12 @@ class User < ActiveRecord::Base
   has_many :comments
   mount_uploader :avatar, AvatarUploader
 
-  def role?(base_role)
-    role == base_role.to_s
+  def admin?
+    role == 'admin'
+  end
+
+  def moderator?
+    role == 'moderator'
   end
 
 end
