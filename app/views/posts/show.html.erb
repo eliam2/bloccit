@@ -20,17 +20,21 @@
           </small>
           <br>
           ---<br>
-        <% end %>
+        <%end%>
       </div>
     </div>
   
   <div class="col-md-8">
-    <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @comment} %>
+    <% if policy(@comment).show? %>
+      <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @comment} %>
+    <% else %>
+      <%= link_to "Sign in to comment", new_user_session_path, class: 'btn btn-success' %>
+    <%end%>
   </div>
 
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+    <%end%>
   </div>
 </div>
-<%end%>
