@@ -4,9 +4,8 @@ class  TopicPolicy < ApplicationPolicy
     true
   end
 
-  #Intentionally allowing all users, not just admins to create topics
   def create?
-    user.present?
+    user.present? && user.admin?
   end
 
   def update?
@@ -15,7 +14,6 @@ class  TopicPolicy < ApplicationPolicy
 
   def destroy?
     create?
-    #user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 
 end
