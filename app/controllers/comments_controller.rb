@@ -2,9 +2,11 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @topic = @post.topic
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
+    @comment.post = @post
     authorize @comment
+
+    @topic = @post.topic
 
     if @comment.save
        flash[:notice] = "Comment was saved."
