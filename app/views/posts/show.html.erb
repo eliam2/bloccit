@@ -29,7 +29,7 @@
     </div>
 
     <% if policy(@comment).show? %>
-      <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @comment} %>
+      <%= render partial: 'comments/form', locals: {post: @post, comment: @comment} %>
     <% else %>
       <%= link_to "Sign in to comment", new_user_session_path, class: 'btn btn-success' %>
     <%end%>

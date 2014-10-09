@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
 
   def create
-    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
-    @comment = current_user.comments.build(comment_params)
-    @comment.post = @post
+    @topic = @post.topic
+    @comment = Comment.new(comment_params)
     authorize @comment
 
     if @comment.save
@@ -17,8 +16,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
+    @topic = @post.topic
     @comment = Comment.find(params[:id])
     authorize @comment
 
