@@ -5,41 +5,42 @@ gem 'rails', '4.0.10'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
- group :production do
-   gem 'pg'
-   gem 'rails_12factor'
- end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
  
- group :development do
+group :test do
+  gem 'rspec-rails', '~> 3.1.0'
+end
+
+group :development do
   gem 'pry'
   gem 'quiet_assets'
   gem 'sqlite3'
- end
- 
+end
+
 gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'carrierwave'
+
+gem 'capybara'
 
 gem 'devise'
 
 gem 'faker'
 
+gem 'fog'
+
 gem 'figaro'
 
+gem 'mini_magick'
 
 gem 'pundit'
 
 gem 'redcarpet'
 
-gem 'carrierwave'
-
-gem 'mini_magick'
-
-gem 'fog'
-
 gem 'will_paginate', '~> 3.0.5'
-
-group :test do
-  gem 'rspec-rails', '~> 3.1.0'
-end
  
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
