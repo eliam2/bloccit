@@ -11,7 +11,9 @@ gem 'rails', '4.0.10'
  end
  
  group :development do
-   gem 'sqlite3'
+  gem 'pry'
+  gem 'quiet_assets'
+  gem 'sqlite3'
  end
  
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -21,6 +23,7 @@ gem 'devise'
 gem 'faker'
 
 gem 'figaro'
+
 
 gem 'pundit'
 

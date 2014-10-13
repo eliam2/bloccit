@@ -24,7 +24,7 @@ require 'rails_helper'
      end
  
      it "does not send emails to users who haven't" do
-       allow( FavoriteMailer )
+       expect( FavoriteMailer )
          .not_to receive(:new_comment)
  
        @comment.save

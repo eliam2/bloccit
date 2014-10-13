@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     @comment = Comment.new
+    authorize @topic
   end
 
   def new
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
     authorize @post
   end
 
-  def create
+  def create    
     @topic = Topic.find(params[:topic_id])
     @post = current_user.posts.build(post_params)
     @post.topic = @topic
