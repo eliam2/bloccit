@@ -15,8 +15,7 @@ class TopicsController < ApplicationController
     authorize @topic
   end
 
-  def create
-    
+  def create    
     @topic = Topic.new(topic_params)
     authorize @topic 
      if @topic.save

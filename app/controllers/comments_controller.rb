@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.new(comment_params)
     @comment.post = @post
-    @favorite = 
     authorize @comment
 
     @topic = @post.topic
