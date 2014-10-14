@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    #Render a view that is useful for the client's
     @user = User.find(params[:id])
     @posts = @user.posts.visible_to(current_user)
     @comments = @user.comments

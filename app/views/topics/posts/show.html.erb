@@ -31,7 +31,7 @@
 
     <%= render partial: 'favorites/favorite', locals: { post: @post } %>
 
-    <h5><%= @post.comments.count %> Comments: </h5>
+    <h5><%= pluralize(@post.comments.count, 'comment') %></h5>
     
     <div class="media">
       <div class="media-body">
