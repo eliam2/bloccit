@@ -11,11 +11,37 @@ module TestFactories
   end
 
   def authenticated_user(options={})
-      user_options = {email: "email#{rand}@fake.com", password: 'password'}.merge(options)
-      user = User.new(user_options)
+    user_options = {
+      email: "email#{rand}@fake.com",
+      password: 'password'
+    }.merge(options)
+    
+    user = User.new(user_options)
     user.skip_confirmation!
     user.save
     user
   end
 
+  def signed_in_user
+    user = FactoryGirl.build(:user)
+    user.skip_confirmation!
+    user.save
+    user
+  end
+
+  FactoryGirl.define do
+    factory :user do
+      email 'test@example.com'
+      password 'f4k3p455w0rd'
+    end
+  end
+
+  def comment_without_email(options={})
+    comment_options = {
+      user: authenticated_user,
+      body: "A comment",
+      post: associated_post
+      }.merge(options)
+      comment = Comment.create(comment_options)
+  end
 end

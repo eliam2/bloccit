@@ -28,6 +28,8 @@ gem 'capybara'
 
 gem 'devise'
 
+gem 'factory_girl_rails', '~> 4.0'
+
 gem 'faker'
 
 gem 'fog'
