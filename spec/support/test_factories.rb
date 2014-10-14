@@ -1,47 +1,47 @@
 module TestFactories
   
-  def associated_post(options={})
-    post_options = {
-      title: 'Post title',
-      body: 'Post bodies must be pretty long.',
-      topic: Topic.create(name: 'Topic name'),
-      user: authenticated_user
-    }.merge(options)
-    Post.create(post_options)
-  end
+  # def associated_post(options={})
+  #   post_options = {
+  #     title: 'Post title',
+  #     body: 'Post bodies must be pretty long.',
+  #     topic: Topic.create(name: 'Topic name'),
+  #     user: authenticated_user
+  #   }.merge(options)
+  #   Post.create(post_options)
+  # end
 
-  def authenticated_user(options={})
-    user_options = {
-      email: "email#{rand}@fake.com",
-      password: 'password'
-    }.merge(options)
+  # def authenticated_user(options={})
+  #   user_options = {
+  #     email: "email#{rand}@fake.com",
+  #     password: 'password'
+  #   }.merge(options)
     
-    user = User.new(user_options)
-    user.skip_confirmation!
-    user.save
-    user
-  end
+  #   user = User.new(user_options)
+  #   user.skip_confirmation!
+  #   user.save
+  #   user
+  # end
 
-  def signed_in_user
-    user = FactoryGirl.build(:user)
-    user.skip_confirmation!
-    user.save
-    user
-  end
+  # def signed_in_user
+  #   user = FactoryGirl.build(:user)
+  #   user.skip_confirmation!
+  #   user.save
+  #   user
+  # end
 
-  FactoryGirl.define do
-    factory :user do
-      email 'test@example.com'
-      password 'f4k3p455w0rd'
-    end
-  end
+  # FactoryGirl.define do
+  #   factory :user do
+  #     email 'test@example.com'
+  #     password 'f4k3p455w0rd'
+  #   end
+  # end
 
-  def comment_without_email(options={})
-    comment_options = {
-      user: authenticated_user,
-      body: "A comment",
-      post: associated_post
-      }.merge(options)
-      comment = Comment.create(comment_options)
-  end
+  # def comment_without_email(options={})
+  #   comment_options = {
+  #     user: authenticated_user,
+  #     body: "A comment",
+  #     post: associated_post
+  #     }.merge(options)
+  #     comment = Comment.create(comment_options)
+  # end
 end

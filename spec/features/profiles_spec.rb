@@ -2,15 +2,14 @@
 
  describe "Visiting profiles" do
  
-  include TestFactories
   include Warden::Test::Helpers
   Warden.test_mode!
  
   describe "not signed in" do
     before do 
-     @user = authenticated_user
-     @post = associated_post(user: @user)
-     @comment = comment_without_email(user: @user, post: @post)
+     @user = create(:user)
+     @post = create(:post, user: @user)
+     @comment = create(:comment, user: @user, post: @post)
     end
 
     it "shows profile" do
@@ -25,9 +24,9 @@
 
     describe "signed in" do
       before do
-        @user = signed_in_user
-        @post = associated_post(user: @user)
-        @comment = comment_without_email(user: @user, post: @post)
+        @user = create(:user)
+        @post = create(:post, user: @user)
+        @comment = create(:comment, user: @user, post: @post)
       end
 
       it "shows profile" do
