@@ -26,6 +26,8 @@ gem 'carrierwave'
 
 gem 'capybara'
 
+gem 'database_cleaner'
+
 gem 'devise'
 
 gem 'factory_girl_rails', '~> 4.0'
